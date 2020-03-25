@@ -22,7 +22,9 @@
             <div class="card" style="margin-top: 10px">
                 <div class="card-body">
                     <h5 class="card-title">Current playing</h5>
-                    <p class="card-text"> Song</p>
+                    <p class="card-text" id="current-playing"> Song</p>
+                    <p class="card-text" id="play"> Play</p>
+                    <p class="card-text" id="pause"> Pause</p>
 
 
                 </div>
@@ -88,11 +90,27 @@
     {% block javascripts %}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script type="application/javascript">
-        $("h1").on('click', function() {
+        $("#pause").on('click', function() {
             $.ajax({
-                url:  'http://localhost:8000/ajax'{{ path('ajax') }},
-                success: function(result){
-                console.log(result);
+                url:'{{ (path('pause')) }}',
+                type: "POST",
+                dataType: "json",
+                async: true,
+                success: function (data)
+                {
+                    console.log(data)
+                }
+            });
+        });
+        $("#play").on('click', function() {
+            $.ajax({
+                url:'{{ (path('play')) }}',
+                type: "POST",
+                dataType: "json",
+                async: true,
+                success: function (data)
+                {
+                    console.log(data)
                 }
             });
         });
