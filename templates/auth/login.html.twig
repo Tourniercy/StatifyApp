@@ -1,32 +1,40 @@
-
 {% extends "base.html.twig" %}
 
 {% block body %}
 <style type="text/css">
-    body { background-color: #DADADA; }
-    body > .grid { height: 100%; }
-    .column { max-width: 450px; }
+    body { background-image: url("https://congngheads.com/media/images/anh-dep/bo-anh-nen-phong-canh-co-trang-trung-quoc-cho-may-tinh/bo-anh-nen-phong-canh-co-trang-trung-quoc-cho-may-tinh-5.jpg") }
 </style>
 
 <div class="ui middle aligned center aligned grid">
     <div class="column">
-        <h2 class="ui teal image header">
-            <div class="content">
-                Log-in to your account
-            </div>
-        </h2>
         <form class="ui large form">
-            <div class="ui stacked segment">
-                <a href="{{ spotify_auth_url }}" class="ui fluid large teal submit button"><i class="spotify icon"></i> Login by Spotify</a>
+            <div class="text-center">
+                <h1 class="display-4 mt-5 bold">Statify</h1>
+                <h3 class="mt-1">What have you been listening to?</h3>
             </div>
 
-            {% for flashMessage in app.session.flashbag.get('error') %}
-            <div class="ui error message">{{ flashMessage }}</div>
-            {% endfor %}
+            <div class="container mt-5">
+                <div class="row justify-content-md-center">
+                    <div class="col-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title"><a>Let's Jump In!</a></h4>
+                                <p class="card-text">Signing in will allow you to view statistics about the music and artists you listen to on Spotify.</p>
+                                <a href="{{ spotify_auth_url }}" class="btn" style="background-color: #1DB954;color: black;"> <i class="fab fa-spotify"></i> Login with Spotify</a>
+                                {% for flashMessage in app.session.flashbag.get('error') %}
+                                    <div class="ui error message">{{ flashMessage }}</div>
+                                {% endfor %}
 
-            {% for flashMessage in app.session.flashbag.get('success') %}
-            <div class="ui error message">{{ flashMessage }}</div>
-            {% endfor %}
+                                {% for flashMessage in app.session.flashbag.get('success') %}
+                                    <div class="ui error message">{{ flashMessage }}</div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 
         </form>
     </div>

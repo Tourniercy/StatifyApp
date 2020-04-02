@@ -51,9 +51,10 @@ class AjaxController extends AbstractController
         $api->setAccessToken($accessToken);
         $api->play(false, [
             'uris' => [ $session->get('current_track')->item->uri],
-            'offset' => [1000],
-        ]
-        );
+        ]);
+        $api->seek([
+            'position_ms' => 60000 + 37000, // Move to the 1.37 minute mark
+        ]);
         return($api->getMyCurrentPlaybackInfo());
     }
 }

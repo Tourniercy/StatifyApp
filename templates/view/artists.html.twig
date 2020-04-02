@@ -1,0 +1,118 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+    <div class="container">
+        <h1>Profile</h1>
+        <div class="row">
+        <div class="col-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ me.display_name }} <span class="flag-icon flag-icon-{{ me.country|lower }} "></span></h5>
+
+                <h6 class="card-subtitle mb-2 text-muted">{{ me.product }}</h6>
+                <p class="card-text"> {{ me.followers.total }} Followers</p>
+                <a href="{{ me.external_urls.spotify }}" class="card-link"><i class="fas fa-link"></i> Profile</a>
+                <a href=" {{ path('logout') }}" class="btn btn-primary float-right" role="button">Logout</a>
+
+
+            </div>
+
+        </div>
+            <div class="card" style="margin-top: 10px">
+                <div class="card-body">
+                    <h5 class="card-title">Current playing</h5>
+                    <p class="card-text" id="current-playing"> Song</p>
+                    <p class="card-text" id="play"> Play</p>
+                    <p class="card-text" id="pause"> Pause</p>
+
+
+                </div>
+
+            </div>
+        </div>
+            <div class="col-9 card">
+                    <div class="card-body">
+                        <h5 class="card-title">Mes playlists</h5>
+                        <div class="col-12">
+                            <div class="row">
+                                {% for playlist in myplaylists.items %}
+                        <div class="col-4 pl-0 pr-0 pt-2 pb-2">
+                                        <img src="{{ playlist.images[0].url}}" style="height: 82px"/>
+                                        <a href="{{playlist.external_urls.spotify}}"> {{ playlist.name|u.truncate(18, '...') }}</a>
+                        </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <br/>
+
+
+
+        <div class="row">
+            <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Top artist</h5>
+                <ol type="1">
+                    {% for artist in topartists.items %}
+                        <li>{{ artist.name }}</li>
+                    {% endfor %}
+                </ol>
+
+            </div>
+        </div>
+            </div>
+            <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Top song</h5>
+                <ol type="1">
+                    {% for title in toptracks.items %}
+                        <li>{{ title.artists[0].name }} - {{  title.name }}</li>
+                    {% endfor %}
+                </ol>
+
+            </div>
+        </div>
+            </div>
+        </div>
+    </div>
+    <pre><code>
+    {{ dump(myplaylists) }}
+  </code></pre> <pre><code>
+    {{ dump(devices) }}
+  </code></pre>
+
+
+    {% block javascripts %}
+        <script type="application/javascript">
+        $("#pause").on('click', function() {
+            $.ajax({
+                url:'{{ (path('pause')) }}',
+                type: "POST",
+                dataType: "json",
+                async: true,
+                success: function (data)
+                {
+                    console.log(data)
+                }
+            });
+        });
+        $("#play").on('click', function() {
+            $.ajax({
+                url:'{{ (path('play')) }}',
+                type: "POST",
+                dataType: "json",
+                async: true,
+                success: function (data)
+                {
+                    console.log(data)
+                }
+            });
+        });
+        </script>
+    {% endblock %}
+{% endblock %}
