@@ -88,34 +88,4 @@
   </code></pre> <pre><code>
     {{ dump(devices) }}
   </code></pre>
-
-
-    {% block javascripts %}
-        <script type="application/javascript">
-        $("#pause").on('click', function() {
-            $.ajax({
-                url:'{{ (path('pause')) }}',
-                type: "POST",
-                dataType: "json",
-                async: true,
-                success: function (data)
-                {
-                    console.log(data)
-                }
-            });
-        });
-        $("#play").on('click', function() {
-            $.ajax({
-                url:'{{ (path('play')) }}',
-                type: "POST",
-                dataType: "json",
-                async: true,
-                success: function (data)
-                {
-                    console.log(data)
-                }
-            });
-        });
-        </script>
-    {% endblock %}
 {% endblock %}

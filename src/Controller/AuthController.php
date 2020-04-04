@@ -45,7 +45,8 @@ class AuthController extends AbstractController
     {
 
         $options = [
-            'scope' => $this->spotifyParams['scope']
+            'scope' => $this->spotifyParams['scope'],
+             'auto_refresh' => true,
         ];
 
         $spotify_auth_url = $this->spotify->getAuthorizeUrl($options);
@@ -57,6 +58,7 @@ class AuthController extends AbstractController
             ));
         }
         else {
+            $this->spotify->refreshAccessToken($accessToken);
             return $this->redirectToRoute('dashboard');
         }
 
@@ -83,13 +85,16 @@ class AuthController extends AbstractController
      */
     public function dashboard(Request $request, SessionInterface $session )
     {
+        $options = [
+            'auto_refresh' => true,
+        ];
         $accessToken = $session->get('accessToken');
         if( ! $accessToken ) {
             $session->getFlashBag()->add('error', 'Invalid authorization');
             $this->redirectToRoute('login');
         }
 
-        $api = new SpotifyWebAPI\SpotifyWebAPI();
+        $api = new SpotifyWebAPI\SpotifyWebAPI($options);;
         $api->setAccessToken($accessToken);
 
         $me = $api->me();
@@ -112,13 +117,16 @@ class AuthController extends AbstractController
      */
     public function tracks(Request $request, SessionInterface $session )
     {
+        $options = [
+            'auto_refresh' => true,
+        ];
         $accessToken = $session->get('accessToken');
         if( ! $accessToken ) {
             $session->getFlashBag()->add('error', 'Invalid authorization');
             $this->redirectToRoute('login');
         }
 
-        $api = new SpotifyWebAPI\SpotifyWebAPI();
+        $api = new SpotifyWebAPI\SpotifyWebAPI($options);
         $api->setAccessToken($accessToken);
 
         $me = $api->me();
@@ -142,13 +150,16 @@ class AuthController extends AbstractController
 
     public function artists(Request $request, SessionInterface $session )
     {
+        $options = [
+            'auto_refresh' => true,
+        ];
         $accessToken = $session->get('accessToken');
         if( ! $accessToken ) {
             $session->getFlashBag()->add('error', 'Invalid authorization');
             $this->redirectToRoute('login');
         }
 
-        $api = new SpotifyWebAPI\SpotifyWebAPI();
+        $api = new SpotifyWebAPI\SpotifyWebAPI($options);;
         $api->setAccessToken($accessToken);
 
         $me = $api->me();
@@ -171,13 +182,16 @@ class AuthController extends AbstractController
 
     public function playlists(Request $request, SessionInterface $session )
     {
+        $options = [
+            'auto_refresh' => true,
+        ];
         $accessToken = $session->get('accessToken');
         if( ! $accessToken ) {
             $session->getFlashBag()->add('error', 'Invalid authorization');
             $this->redirectToRoute('login');
         }
 
-        $api = new SpotifyWebAPI\SpotifyWebAPI();
+        $api = new SpotifyWebAPI\SpotifyWebAPI($options);;
         $api->setAccessToken($accessToken);
 
         $me = $api->me();

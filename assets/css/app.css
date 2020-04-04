@@ -1,0 +1,138 @@
+/* Footer */
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    position: relative;
+    padding-bottom: 3rem;
+    min-height: 100%;
+}
+
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #efefef;
+    text-align: center;
+}
+
+.nav-tabs {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.tab-content {
+    padding: 2rem 0rem 1rem !important;
+}
+
+/* Container */
+
+@media (min-width: 576px) {
+    .container.wide {
+        max-width: 700px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container.wide {
+        max-width: 1100px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container.wide {
+        max-width: 1400px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container.wide {
+        max-width: 1750px;
+    }
+}
+
+/* Other */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Manrope", "Roboto", sans-serif;
+    font-weight: 600 !important;
+}
+
+.thin {
+    font-weight: 300 !important;
+}
+
+.h1-size {
+    font-size: 45.133px;
+}
+
+.bottom-card {
+    position: absolute;
+    bottom: -10px;
+    width: 92%;
+    transition: all 0.2s linear;
+}
+
+.bottom-card-small {
+    position: absolute;
+    bottom: -10px;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    width: 100%;
+    transition: all 0.2s linear;
+}
+
+.right-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+}
+
+.left-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 110px;
+}
+
+.card-main {
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.card-sub {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.card-height {
+    height: 20.5vh;
+}
+
+.card-height-small {
+    height: 125px;
+}
+
+.card-margin {
+    margin-bottom: 35px;
+}
