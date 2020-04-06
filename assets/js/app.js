@@ -6,20 +6,18 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
+
 import '../css/app.css';
 import '../css/bootstrap.min.css';
 import '../css/mdb.min.css';
+const $ = require('jquery');
+import '../js/jquery-ui.min';
 import '../js/bootstrap.min';
-import '../js/mdb.min';
+import '../js/typeahead.bundle.min';
+import '../js/script';
 
-// Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
-import $ from 'jquery';
+
+
 
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
-$(function() {
-    $('.hover-card').hover(function() {
-        $('#hover-card-' + $(this).attr('name')).css('bottom', '-20px');
-    }, function() {
-        $('#hover-card-' + $(this).attr('name')).css('bottom', '-10px');
-    });
-});
+

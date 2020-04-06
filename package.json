@@ -14,8 +14,10 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "bootstrap-autocomplete": "^2.3.3",
         "chart.js": "^2.9.3",
         "jquery": "^3.4.1",
+        "jquery-ui": "^1.12.1",
         "popper.js": "^1.16.1"
     }
 }

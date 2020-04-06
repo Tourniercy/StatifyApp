@@ -36,6 +36,7 @@ class AuthController extends AbstractController
             'http://127.0.0.1:8000/login/oauth'
         );
 
+
     }
 
     /**
@@ -46,19 +47,17 @@ class AuthController extends AbstractController
 
         $options = [
             'scope' => $this->spotifyParams['scope'],
-             'auto_refresh' => true,
         ];
 
         $spotify_auth_url = $this->spotify->getAuthorizeUrl($options);
         $accessToken = $session->get('accessToken');
-        if( ! $accessToken ) {
+        if(!$accessToken ) {
             return $this->render('auth/login.html.twig', array(
                 'spotify_auth_url' => $spotify_auth_url
 
             ));
         }
         else {
-            $this->spotify->refreshAccessToken($accessToken);
             return $this->redirectToRoute('dashboard');
         }
 
@@ -78,135 +77,6 @@ class AuthController extends AbstractController
         $session->set('accessToken', $accessToken); // symfony session
 
         return $this->redirectToRoute('dashboard');
-    }
-
-    /**
-     * @Route("/dashboard", name="dashboard")
-     */
-    public function dashboard(Request $request, SessionInterface $session )
-    {
-        $options = [
-            'auto_refresh' => true,
-        ];
-        $accessToken = $session->get('accessToken');
-        if( ! $accessToken ) {
-            $session->getFlashBag()->add('error', 'Invalid authorization');
-            $this->redirectToRoute('login');
-        }
-
-        $api = new SpotifyWebAPI\SpotifyWebAPI($options);;
-        $api->setAccessToken($accessToken);
-
-        $me = $api->me();
-        $topartists = $api->getMyTop('artists',['limit'=>50]);
-        $toptracks = $api->getMyTop('tracks',['limit'=>50]);
-        $myplaylists = $api->getMyPlaylists();
-        $devices = $api->getMyDevices();
-
-        return $this->render('view/dashboard.html.twig', array(
-            'me' => $me,
-            'topartists' => $topartists,
-            'toptracks' => $toptracks,
-            'myplaylists' => $myplaylists,
-            'devices' => $devices
-        ));
-    }
-
-    /**
-     * @Route("/tracks", name="tracks")
-     */
-    public function tracks(Request $request, SessionInterface $session )
-    {
-        $options = [
-            'auto_refresh' => true,
-        ];
-        $accessToken = $session->get('accessToken');
-        if( ! $accessToken ) {
-            $session->getFlashBag()->add('error', 'Invalid authorization');
-            $this->redirectToRoute('login');
-        }
-
-        $api = new SpotifyWebAPI\SpotifyWebAPI($options);
-        $api->setAccessToken($accessToken);
-
-        $me = $api->me();
-        $topartists = $api->getMyTop('artists',['limit'=>50]);
-        $toptracks = $api->getMyTop('tracks',['limit'=>50]);
-        $myplaylists = $api->getMyPlaylists();
-        $devices = $api->getMyDevices();
-
-        return $this->render('view/tracks.html.twig', array(
-            'me' => $me,
-            'topartists' => $topartists,
-            'toptracks' => $toptracks,
-            'myplaylists' => $myplaylists,
-            'devices' => $devices
-        ));
-    }
-
-    /**
-     * @Route("/artists", name="artists")
-     */
-
-    public function artists(Request $request, SessionInterface $session )
-    {
-        $options = [
-            'auto_refresh' => true,
-        ];
-        $accessToken = $session->get('accessToken');
-        if( ! $accessToken ) {
-            $session->getFlashBag()->add('error', 'Invalid authorization');
-            $this->redirectToRoute('login');
-        }
-
-        $api = new SpotifyWebAPI\SpotifyWebAPI($options);;
-        $api->setAccessToken($accessToken);
-
-        $me = $api->me();
-        $topartists = $api->getMyTop('artists',['limit'=>50]);
-        $toptracks = $api->getMyTop('tracks',['limit'=>50]);
-        $myplaylists = $api->getMyPlaylists();
-        $devices = $api->getMyDevices();
-
-        return $this->render('view/artists.html.twig', array(
-            'me' => $me,
-            'topartists' => $topartists,
-            'toptracks' => $toptracks,
-            'myplaylists' => $myplaylists,
-            'devices' => $devices
-        ));
-    }
-    /**
-     * @Route("/playlists", name="playlists")
-     */
-
-    public function playlists(Request $request, SessionInterface $session )
-    {
-        $options = [
-            'auto_refresh' => true,
-        ];
-        $accessToken = $session->get('accessToken');
-        if( ! $accessToken ) {
-            $session->getFlashBag()->add('error', 'Invalid authorization');
-            $this->redirectToRoute('login');
-        }
-
-        $api = new SpotifyWebAPI\SpotifyWebAPI($options);;
-        $api->setAccessToken($accessToken);
-
-        $me = $api->me();
-        $topartists = $api->getMyTop('artists',['limit'=>50]);
-        $toptracks = $api->getMyTop('tracks',['limit'=>50]);
-        $myplaylists = $api->getMyPlaylists();
-        $devices = $api->getMyDevices();
-
-        return $this->render('view/playlists.html.twig', array(
-            'me' => $me,
-            'topartists' => $topartists,
-            'toptracks' => $toptracks,
-            'myplaylists' => $myplaylists,
-            'devices' => $devices
-        ));
     }
 
     /**

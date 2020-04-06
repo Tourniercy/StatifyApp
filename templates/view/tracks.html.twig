@@ -6,51 +6,30 @@
             <h1 class="h1-size">Top Tracks</h1>
         </div>
         <div class="container wide">
-            <h2 class="mb-4">Past Week</h2>
             <div class="row">
+                {% set id = 0 %}
                 {% for track in toptracks.items %}
-                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12">
-                    <div class="card mb-3">
-                        <div class="view overlay zoom">
-                            <img class="card-img-top cover" src="{{ track.album.images[0].url}}"/>
-                            <a href="{{track.external_urls.spotify}}">
-                            <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <div class="card-body">
-                            <h4 class="card-title song-title">{{  track.name }}</h4>
-                            <p class="card-text song-sub">{{ track.artists[0].name }}</p>
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2 card-margin">
+                        <div class="card card-cascade wider reverse hover-card" name="{{ id }}">
+                            <div class="view view-cascade overlay card-height">
+                                <img class="card-img-top" src="{{ track.album.images[0].url}}">
+                                <a href="{{track.external_urls.spotify}}"><div class="mask rgba-white-slight waves-effect waves-light"></div></a>
+                            </div>
+                            <div class="card-body card-body-cascade bottom-card" id="hover-card-{{ id }}">
+                                <h5 class="mb-1 card-main">{{  track.name }}</h5>
+                                <p class="text-muted mb-0 card-sub">
+                                    {{ track.artists[0].name }}
+                                </p>
+                            </div>
+                            <span class="badge badge-pill badge-primary left-badge">{{ track.album.name}}</span>
+                            {#<span class="badge badge-pill badge-danger right-badge"><i class="fas fa-chevron-down mr-2"></i>1</span>#}
                         </div>
                     </div>
-                </div>
+                    {% set id = id + 1 %}
                 {% endfor %}
             </div>
             </div>
-    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2 card-margin">
-        <div class="card card-cascade wider reverse hover-card" name="2">
-            <div class="view view-cascade overlay card-height">
-                <img class="card-img-top" src="https://i.scdn.co/image/ab67616d0000b273df7b5f05962e27997781fed1">
-                <a href="https://open.spotify.com/album/6ZyUYebQGvTsFncTHky7ZL"><div class="mask rgba-white-slight waves-effect waves-light"></div></a>
-            </div>
-            <div class="card-body card-body-cascade bottom-card" id="hover-card-2" style="bottom: -10px;">
-                <h5 class="mb-1 card-main">El mariachi</h5>
-                <p class="text-muted mb-0 card-sub">
-                    <i class="fas fa-search blue-text mr-1"></i>
-                    Yasko
-                </p>
-            </div>
-            <span class="badge badge-pill badge-primary left-badge">El mariachi</span>
-            <span class="badge badge-pill badge-danger right-badge"><i class="fas fa-chevron-down mr-2"></i>1</span>
-        </div>
-    </div>
-    <pre><code>
-    {{ dump(toptracks) }}
-  </code></pre> <pre><code>
+  <pre><code>
     {{ dump(devices) }}
   </code></pre>
-
-
-    {% block javascripts %}
-    {% endblock %}
 {% endblock %}
