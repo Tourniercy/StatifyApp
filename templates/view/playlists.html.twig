@@ -4,6 +4,8 @@
 
     <div class="text-center mt-4 pt-2 pb-4">
         <h1 class="h1-size">My playlists</h1>
+        <a href="/playlist/new" type="button" class="btn btn-primary">New playlist</a>
+
     </div>
     <div class="container wide">
         <div class="row">
@@ -14,16 +16,27 @@
                 <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2 card-margin">
                     <div class="card card-cascade wider reverse hover-card" name="{{ id }}">
                         <div class="view view-cascade overlay card-height">
+                            {% if playlist.images[0].url is defined %}
                             <img class="card-img-top" src="{{ playlist.images[0].url}}">
+                            {% else %}
+                            <img class="card-img-top" src="{{asset('build/images/pochette.png')}}">
+                            {% endif %}
                             <a href="{{playlist.external_urls.spotify}}"><div class="mask rgba-white-slight waves-effect waves-light"></div></a>
                         </div>
                         <div class="card-body card-body-cascade bottom-card" id="hover-card-{{ id }}">
-                            <h5 class="mb-1 card-main">{{ playlist.name|u.truncate(18, '...') }}</h5>
-                            <p class="text-muted mb-0 card-sub">
-{#                                {{ track.artists[0].name }}#}
-                            </p>
+                            <div class="row">
+                                <div class="col-9">
+                                    <h5 class="mb-1 card-main">{{ playlist.name|u.truncate(18, '...') }}</h5>
+                                    <p class="text-muted mb-0 card-sub"></p>
+                                </div>
+                                {% if devices|length > 0 and active%}
+                                    <div class="col-3">
+{#                                        <i class="fas fa-2x fa-play-circle" data-track="{{track.uri}}" data-url="{{ (path('play')) }}"></i>#}
+                                    </div>
+                                {% endif %}
+                            </div>
                         </div>
-{#                        <span class="badge badge-pill badge-primary left-badge">{{ track.album.name}}</span>#}
+
                         {% if playlist.owner.id == me.id %}<span class="badge badge-pill badge-primary right-badge edit-playlist" style="cursor: pointer" data-idplaylist="{{ url('playlistEdit', {id: playlist.id}) }}"><i class="fas fa-pen"></i></span>{% endif %}
                     </div>
                 </div>
@@ -31,7 +44,4 @@
             {% endfor %}
         </div>
     </div>
-    <pre><code>
-    {{ dump(myplaylists) }}
-  </code></pre>
 {% endblock %}

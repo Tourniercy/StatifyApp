@@ -2,24 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90d45d8c-b22c-4212-bd3d-a77d83566def" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/StatifyApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/StatifyApp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/mdb.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/mdb.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AjaxController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ajax/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/view/artists.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/view/artists.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ApiDataController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ViewController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/view/dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/view/dashboard.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/view/playlist.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/view/playlist.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/view/playlists.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/view/playlists.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/view/tracks.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/view/tracks.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +33,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -175,6 +173,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/view" />
@@ -188,11 +187,11 @@
       <recent name="C:\Users\Cyril\project\StatifyApp\StatifyApp\templates\auth" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Cyril\project\StatifyApp\StatifyApp\assets\img" />
+      <recent name="C:\Users\Cyril\project\StatifyApp\StatifyApp\assets\font" />
       <recent name="C:\Users\Cyril\project\StatifyApp\StatifyApp\public" />
       <recent name="C:\Users\Cyril\project\StatifyApp\StatifyApp\assets" />
       <recent name="C:\Users\Cyril\project\StatifyApp\StatifyApp\assets\css" />
-      <recent name="C:\Users\Cyril\project\StatifyApp\StatifyApp\assets\js" />
-      <recent name="C:\Users\Cyril\project\StatifyApp\StatifyApp\templates\view" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -231,7 +230,9 @@
       <workItem from="1586081635611" duration="14774000" />
       <workItem from="1586103880343" duration="1689000" />
       <workItem from="1586106311603" duration="4720000" />
-      <workItem from="1586166439965" duration="20487000" />
+      <workItem from="1586166439965" duration="21825000" />
+      <workItem from="1586190470938" duration="5938000" />
+      <workItem from="1586249278903" duration="39954000" />
     </task>
     <servers />
   </component>
@@ -251,13 +252,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1586177094307" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586093155424">
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586258846883">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586093155424" />
-    <state x="656" y="252" width="607" height="536" key="find.popup" timestamp="1586104617501">
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586258846883" />
+    <state x="656" y="252" width="607" height="536" key="find.popup" timestamp="1586297014127">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="252" width="607" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586104617501" />
+    <state x="656" y="252" width="607" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586297014127" />
   </component>
 </project>

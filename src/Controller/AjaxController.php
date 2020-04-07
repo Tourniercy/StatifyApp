@@ -34,6 +34,7 @@ class AjaxController extends AbstractController
      */
     public function play(Request $request, SessionInterface $session )
     {
+        $trackid = $request->request->get('trackid');
         $accessToken = $session->get('accessToken');
         if( ! $accessToken ) {
             $session->getFlashBag()->add('error', 'Invalid authorization');
@@ -42,10 +43,7 @@ class AjaxController extends AbstractController
         $api = new SpotifyWebAPI\SpotifyWebAPI();
         $api->setAccessToken($accessToken);
         $api->play(false, [
-            'uris' => [ $session->get('current_track')->item->uri],
-        ]);
-        $api->seek([
-            'position_ms' => 60000 + 37000, // Move to the 1.37 minute mark
+            'uris' => [$trackid],
         ]);
         return($api->getMyCurrentPlaybackInfo());
     }

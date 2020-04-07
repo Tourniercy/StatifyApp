@@ -10,11 +10,16 @@
             <!--Panel-->
             <div class="card card-body mb-3 col-12">
                 <div class="media d-block d-md-flex">
-                    <img class="d-flex avatar-2 mb-md-0 mb-3 mx-auto" style="width: 260px" src="{{playlist.images[0].url}}"
-                         alt="Generic placeholder image">
+                    {% if playlist.images[0].url is defined %}
+                        <img class="d-flex avatar-2 mb-md-0 mb-3 mx-auto" style="width: 260px" src="{{playlist.images[0].url}}"
+                             alt="Pochette">
+                    {% else %}
+                        <img class="d-flex avatar-2 mb-md-0 mb-3 mx-auto" style="width: 260px" src="{{asset('build/images/pochette.png')}}"
+                             alt="Pochette">
+                    {% endif %}
                     <div class="media-body text-center text-md-left ml-md-3 ml-0 col-6">
                         <h2 class="h2-size">{{playlist.name}}</h2>
-                        <button type="button" class="btn btn-primary btn-md">Read more</button>
+                        <a class="btn btn-primary btn-md" href="{{ playlist.external_urls.spotify }}" role="button">View playlist on spotify</a>
                     </div>
                     <form class="form-inline d-flex justify-content-center md-form form-sm mt-0 ml-md-3 col-4">
                         <i class="fas fa-search" aria-hidden="true"></i>
@@ -29,7 +34,6 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
                     <th scope="col">Titre</th>
                     <th scope="col">Artiste</th>
                     <th scope="col">Album</th>
@@ -39,7 +43,6 @@
                 <tbody>
                 {% for track in playlist.tracks.items %}
                 <tr data-id="{{track.track.id}}">
-                    <th scope="row">1</th>
                     <td>{{track.track.name}}</td>
                     <td>{% set i = 0 %}{% for artist in track.track.artists %}{{artist.name}}{% if track.track.artists|length-1 > i %},  {% endif %}{% set i = i + 1 %}{% endfor %}</td>
                     <td>{{track.track.album.name}}</td>
