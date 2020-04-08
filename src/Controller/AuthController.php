@@ -23,8 +23,8 @@ class AuthController extends AbstractController
     public function __construct()
     {
         $this->spotifyParams = [
-            'client_id' => 'e4e6d0a8791448eebb643e4ec22d0e89',
-            'client_secret' => '14b342672e7447a19b03f03c79a11bb8',
+            'client_id' => '435c7b3a2d4f4425917888fc7f637e67',
+            'client_secret' => '228cabcd82fa40d1b7db1b314ec6e559',
             'scope' => ['user-read-email','user-read-private','playlist-read-private',
                 'playlist-read-collaborative','playlist-modify-public',
                 'playlist-modify-private','user-follow-read','user-follow-modify','user-library-read','user-top-read','user-read-playback-state','streaming' ]

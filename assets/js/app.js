@@ -13,7 +13,6 @@ import '../css/mdb.min.css';
 const $ = require('jquery');
 import '../js/jquery-ui.min';
 import '../js/bootstrap.min';
-import '../js/typeahead.bundle.min';
 import '../js/script';
 
 

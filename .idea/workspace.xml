@@ -3,7 +3,41 @@
   <component name="ChangeListManager">
     <list default="true" id="90d45d8c-b22c-4212-bd3d-a77d83566def" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/mdb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/mdb.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/mdb.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/accordion-extended.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/animations-extended.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/buttons.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/cards.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/character-counter.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/chips.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/collapsible.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/dropdown/dropdown-searchable.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/dropdown/dropdown.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/file-input.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/forms-free.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/lightbox.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/material-select/material-select-view-renderer.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/material-select/material-select-view.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/material-select/material-select.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/mdb-autocomplete.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/megamenu.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/parallax.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/preloading.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/range-input.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/scrolling-navbar.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/sidenav.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/smooth-scroll.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/sticky.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/treeview.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/modules/wow.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/typeahead.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/typeahead.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AjaxController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AuthController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,7 +253,7 @@
       <workItem from="1586106311603" duration="4720000" />
       <workItem from="1586166439965" duration="21825000" />
       <workItem from="1586190470938" duration="5938000" />
-      <workItem from="1586249278903" duration="40679000" />
+      <workItem from="1586249278903" duration="44505000" />
     </task>
     <servers />
   </component>
@@ -243,9 +277,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586258846883" />
-    <state x="656" y="252" width="607" height="536" key="find.popup" timestamp="1586297014127">
+    <state x="656" y="252" width="617" height="536" key="find.popup" timestamp="1586299210433">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="252" width="607" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586297014127" />
+    <state x="656" y="252" width="617" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586299210433" />
   </component>
 </project>

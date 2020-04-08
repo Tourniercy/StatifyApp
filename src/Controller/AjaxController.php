@@ -42,10 +42,10 @@ class AjaxController extends AbstractController
         }
         $api = new SpotifyWebAPI\SpotifyWebAPI();
         $api->setAccessToken($accessToken);
-        $api->play(false, [
+        $response = $api->play(false, [
             'uris' => [$trackid],
         ]);
-        return($api->getMyCurrentPlaybackInfo());
+        return $this->json(['success' => $response]);
     }
     /**
      * @Route("/deleteTrackFromPlaylist", name="deleteTrackFromPlaylist")

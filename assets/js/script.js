@@ -36,8 +36,12 @@ $( document ).ready(function() {
                 $('.ui-autocomplete').addClass('list-group');
                 $(".add-track").on('click', function() {
                     var trackId = $(this).data( "id" );
+
                     var playlistId = $("#search-title").data( "playlistid" );
                     var url = $("#search-title").data( "url-add" );
+                    var track =  $(this).data( "title" );
+                    var artists =  $(this).data( "artists" );
+                    var album =  $(this).data( "album" );
                     $.ajax({
                         url:url,
                         type: "POST",
@@ -47,8 +51,12 @@ $( document ).ready(function() {
                         success: function (data)
                         {
                             if (data) {
-                                alert(10);
-                                $('tbody').append( "<p>Test</p>" );
+                                $('tbody').append( "<tr data-id='"+trackId+"'>\n" +
+                                    "                    <td>"+track+"</td>\n" +
+                                    "                    <td>"+artists+"</td>\n" +
+                                    "                    <td>"+album+"</td>\n" +
+                                    "                    <td> <i class=\"far fa-trash-alt delete-track\" data-id='"+trackId+"' data-playlistid='"+playlistId+"' data-url=\"/deleteTrackFromPlaylist\" style=\"color:#ff4444;cursor: pointer;\" aria-hidden=\"true\"></i></td>\n" +
+                                    "                </tr>" );
                             }
                         }
                     });
@@ -81,7 +89,7 @@ $( document ).ready(function() {
             });
             return $("<li class='ui-autocomplete-row list-group-item'></li>")
                 .data("item.autocomplete", item)
-                .append($('<div class="row"><div class="col-3"><img src="'+item.album.images[2].url+'" width="64" height="64"></div><div class="col-8"><span><b>'+item.name+' </b>'+artists+'</span></div><div class="col-1"><i data-id="'+item.id+'" class="fas fa-plus-circle add-track" style="color: #00C851;cursor: pointer"></i></div></div>'))
+                .append($('<div class="row"><div class="col-3"><img src="'+item.album.images[2].url+'" width="64" height="64"></div><div class="col-8"><span><b>'+item.name+' </b>'+artists+'</span></div><div class="col-1"><i data-title="'+item.name+'" data-artists="'+artists+'" data-album="'+item.album.name+'" data-id="'+item.id+'" class="fas fa-plus-circle add-track" style="color: #00C851;cursor: pointer"></i></div></div>'))
                 .appendTo(ul);
         };
     }
@@ -102,23 +110,9 @@ $( document ).ready(function() {
             async: true,
             success: function (data)
             {
-                console.log(data)
+
             }
         });
     });
 });
-
-
-    // $("#pause").on('click', function() {
-    //     $.ajax({
-    //         url:'{{ (path('pause')) }}',
-    //         type: "POST",
-    //         dataType: "json",
-    //         async: true,
-    //         success: function (data)
-    //         {
-    //             console.log(data)
-    //         }
-    //     });
-    // });
 
