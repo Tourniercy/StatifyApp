@@ -25,6 +25,9 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class ViewController extends AbstractController
 {
+    private $spotifyParams;
+    private $spotify;
+
     /**
      * @Route("/dashboard", name="dashboard")
      * @param Request $request
@@ -33,74 +36,26 @@ class ViewController extends AbstractController
      */
     public function dashboard(Request $request, SessionInterface $session )
     {
-        $options = [
-            'auto_refresh' => true,
-        ];
-        $accessToken = $session->get('accessToken');
-        if( ! $accessToken ) {
-            $session->getFlashBag()->add('error', 'Invalid authorization');
-            $this->redirectToRoute('login');
+        $apiAccess = $this->getApiAccess($session);
+        if($apiAccess['redirect']) {
+            return $this->redirectToRoute('login');
         }
-        $api = new SpotifyWebAPI\SpotifyWebAPI($options);;
-        $api->setAccessToken($accessToken);
-
+        $api = new SpotifyWebAPI\SpotifyWebAPI($apiAccess['options'],$apiAccess['SpotifyWebAPISession']);
         $me = $api->me();
         $topartists = $api->getMyTop('artists',['limit'=>6,'time_range'=>'short_term']);
         $toptracks = $api->getMyTop('tracks',['limit'=>6,'time_range'=>'short_term']);
         $myplaylists = $api->getMyPlaylists();
         $devices = $api->getMyDevices();
-//        $sessiontracks =  $session->get('tracks');
-//        $tracks = [];
-//        $i = 0;
-//        foreach ($toptracks->items as $item) {
-//            $tracks[$i] = $item->id;
-//            $i++;
-//        }
-//        $entityManager = $this->getDoctrine()->getManager();
-//        $tracksindb = new TopTracks();
-//        if(!isset($sessiontracks)){
-//            $lastTrack = $this->getDoctrine()
-//                ->getRepository(TopTracks::class)
-//                ->findOneBy(['userid' => $me->id]);
-//            if ($lastTrack) {
-//                foreach ($lastTrack->getTracks() as $key => $value) {
-//                    $secondkey = array_search($value, $tracks);
-//                    if ($secondkey != $key) {
-////                        dd($key-$secondkey);
-//                    }
-//                };
-//                $entityManager->remove($lastTrack);
-//                $session->set('tracks', $lastTrack); // symfony session
-//            }
-//        } else {
-//            foreach ($sessiontracks as $key => $value) {
-//                $secondkey = array_search($value, $tracks);
-//                if ($secondkey != $key) {
-////                    dd($key-$secondkey);
-//                }
-//            };
-//        }
-//        $tracksindb->setUserid($me->id)->setTracks($tracks);
-//        $entityManager->persist($tracksindb);
-//        $entityManager->flush();
 
-        $active = false;
-        foreach ($devices as $device){
-            foreach ($device as $d){
-                if($d->is_active) {
-                    $active = true;
-                }
+        $active = $this->getActiveDevices($devices);
 
-            }
-
-        }
         return $this->render('view/dashboard.html.twig', array(
             'me' => $me,
             'topartists' => $topartists,
             'toptracks' => $toptracks,
             'myplaylists' => $myplaylists,
             'devices' => $devices,
-            'active' => $active
+            'active' => $active,
         ));
     }
 
@@ -112,31 +67,17 @@ class ViewController extends AbstractController
      */
     public function tracks(Request $request, SessionInterface $session )
     {
-        $options = [
-            'auto_refresh' => true,
-        ];
-        $accessToken = $session->get('accessToken');
-        if( ! $accessToken ) {
-            $session->getFlashBag()->add('error', 'Invalid authorization');
-            $this->redirectToRoute('login');
+        $apiAccess = $this->getApiAccess($session);
+        if($apiAccess['redirect']) {
+            return $this->redirectToRoute('login');
         }
-
-        $api = new SpotifyWebAPI\SpotifyWebAPI($options);
-        $api->setAccessToken($accessToken);
+        $api = new SpotifyWebAPI\SpotifyWebAPI($apiAccess['options'],$apiAccess['SpotifyWebAPISession']);
 
         $me = $api->me();
         $toptracks = $api->getMyTop('tracks',['limit'=>50,'time_range'=>'long_term']);
         $devices = $api->getMyDevices();
-        $active = false;
-        foreach ($devices as $device){
-            foreach ($device as $d){
-                if($d->is_active) {
-                    $active = true;
-                }
+        $active = $this->getActiveDevices($devices);
 
-            }
-
-        }
         return $this->render('view/tracks.html.twig', array(
             'me' => $me,
             'toptracks' => $toptracks,
@@ -155,17 +96,11 @@ class ViewController extends AbstractController
 
     public function artists(Request $request, SessionInterface $session )
     {
-        $options = [
-            'auto_refresh' => true,
-        ];
-        $accessToken = $session->get('accessToken');
-        if( ! $accessToken ) {
-            $session->getFlashBag()->add('error', 'Invalid authorization');
-            $this->redirectToRoute('login');
+        $apiAccess = $this->getApiAccess($session);
+        if($apiAccess['redirect']) {
+            return $this->redirectToRoute('login');
         }
-
-        $api = new SpotifyWebAPI\SpotifyWebAPI($options);;
-        $api->setAccessToken($accessToken);
+        $api = new SpotifyWebAPI\SpotifyWebAPI($apiAccess['options'],$apiAccess['SpotifyWebAPISession']);
 
         $me = $api->me();
         $topartists = $api->getMyTop('artists',['limit'=>50,'time_range'=>'long_term']);
@@ -187,30 +122,17 @@ class ViewController extends AbstractController
 
     public function playlists(Request $request, SessionInterface $session )
     {
-        $options = [
-            'auto_refresh' => true,
-        ];
-        $accessToken = $session->get('accessToken');
-        if( ! $accessToken ) {
-            $session->getFlashBag()->add('error', 'Invalid authorization');
-            $this->redirectToRoute('login');
+        $apiAccess = $this->getApiAccess($session);
+        if($apiAccess['redirect']) {
+            return $this->redirectToRoute('login');
         }
+        $api = new SpotifyWebAPI\SpotifyWebAPI($apiAccess['options'],$apiAccess['SpotifyWebAPISession']);
 
-        $api = new SpotifyWebAPI\SpotifyWebAPI($options);;
-        $api->setAccessToken($accessToken);
         $me = $api->me();
         $myplaylists = $api->getMyPlaylists();
         $devices = $api->getMyDevices();
-        $active = false;
-        foreach ($devices as $device){
-            foreach ($device as $d){
-                if($d->is_active) {
-                    $active = true;
-                }
+        $active = $this->getActiveDevices($devices);
 
-            }
-
-        }
         return $this->render('view/playlists.html.twig', array(
             'me' => $me,
             'myplaylists' => $myplaylists,
@@ -230,17 +152,12 @@ class ViewController extends AbstractController
 
     public function playlistNew(Request $request, SessionInterface $session)
     {
-        $options = [
-            'auto_refresh' => true,
-        ];
-        $accessToken = $session->get('accessToken');
-        if( ! $accessToken ) {
-            $session->getFlashBag()->add('error', 'Invalid authorization');
-            $this->redirectToRoute('login');
+        $apiAccess = $this->getApiAccess($session);
+        if($apiAccess['redirect']) {
+            return $this->redirectToRoute('login');
         }
+        $api = new SpotifyWebAPI\SpotifyWebAPI($apiAccess['options'],$apiAccess['SpotifyWebAPISession']);
 
-        $api = new SpotifyWebAPI\SpotifyWebAPI($options);;
-        $api->setAccessToken($accessToken);
         $me = $api->me();
         $devices = $api->getMyDevices();
 
@@ -292,17 +209,12 @@ class ViewController extends AbstractController
 
     public function playlistEdit(Request $request, SessionInterface $session,$id )
     {
-        $options = [
-            'auto_refresh' => true,
-        ];
-        $accessToken = $session->get('accessToken');
-        if( ! $accessToken ) {
-            $session->getFlashBag()->add('error', 'Invalid authorization');
-            $this->redirectToRoute('login');
+        $apiAccess = $this->getApiAccess($session);
+        if($apiAccess['redirect']) {
+            return $this->redirectToRoute('login');
         }
-
-        $api = new SpotifyWebAPI\SpotifyWebAPI($options);;
-        $api->setAccessToken($accessToken);
+        $api = new SpotifyWebAPI\SpotifyWebAPI($apiAccess['options'],$apiAccess['SpotifyWebAPISession']);
+        $api->setAccessToken($apiAccess['accessToken']);
         $me = $api->me();
         $playlist = $api->getPlaylist($id);
         $devices = $api->getMyDevices();
@@ -313,4 +225,38 @@ class ViewController extends AbstractController
             'devices' => $devices
         ));
     }
+
+    public function getApiAccess(SessionInterface $session )
+    {
+        $redirect = false;
+        $options = [
+            'auto_refresh' => true,
+        ];
+        $accessToken = $session->get('accessToken');
+        $SpotifyWebAPISession = $session->get('SpotifyWebAPI\Session');
+
+        if( $accessToken===null ) {
+            $session->getFlashBag()->add('error', 'Invalid authorization');
+            $redirect = true;
+        }
+        if($SpotifyWebAPISession) {
+            $newAccessToken = $SpotifyWebAPISession->getAccessToken();
+            $newRefreshToken = $SpotifyWebAPISession->getRefreshToken();
+        }
+
+        return ['accessToken'=>$accessToken,'options'=>$options,'SpotifyWebAPISession'=>$SpotifyWebAPISession,'redirect'=>$redirect];
+    }
+    public function getActiveDevices($devices)
+    {
+        $active = false;
+        foreach ($devices as $device){
+            foreach ($device as $d){
+                if($d->is_active) {
+                    $active = true;
+                }
+            }
+        }
+        return $active;
+    }
+
 }

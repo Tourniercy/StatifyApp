@@ -2,42 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90d45d8c-b22c-4212-bd3d-a77d83566def" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/StatifyApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/StatifyApp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/mdb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/mdb.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/mdb.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/accordion-extended.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/animations-extended.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/buttons.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/cards.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/character-counter.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/chips.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/collapsible.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/dropdown/dropdown-searchable.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/dropdown/dropdown.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/file-input.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/forms-free.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/lightbox.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/material-select/material-select-view-renderer.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/material-select/material-select-view.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/material-select/material-select.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/mdb-autocomplete.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/megamenu.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/parallax.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/preloading.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/range-input.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/scrolling-navbar.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/sidenav.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/smooth-scroll.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/sticky.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/treeview.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/wow.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/typeahead.bundle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/typeahead.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.php-version" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AjaxController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ViewController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ViewController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/view/dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/view/dashboard.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,9 +22,7 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -90,7 +64,6 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/persistence" />
       <path value="$PROJECT_DIR$/vendor/jwilsson/spotify-web-api-php" />
       <path value="$PROJECT_DIR$/vendor/ocramius/package-versions" />
-      <path value="$PROJECT_DIR$/vendor/ocramius/proxy-manager" />
       <path value="$PROJECT_DIR$/vendor/components/font-awesome" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
@@ -175,13 +148,13 @@
       <path value="$PROJECT_DIR$/vendor/twig/extra-bundle" />
       <path value="$PROJECT_DIR$/vendor/twig/string-extra" />
       <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
-      <path value="$PROJECT_DIR$/vendor/easycorp/easy-log-handler" />
       <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
       <path value="$PROJECT_DIR$/vendor/webimpress/safe-writer" />
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-eventmanager" />
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge" />
       <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle" />
+      <path value="$PROJECT_DIR$/vendor/ocramius/proxy-manager" />
     </include_path>
   </component>
   <component name="ProjectId" id="1Zf1yVLl1P6ke9PjSKb68oPpLPA" />
@@ -190,7 +163,6 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -253,14 +225,28 @@
       <workItem from="1586106311603" duration="4720000" />
       <workItem from="1586166439965" duration="21825000" />
       <workItem from="1586190470938" duration="5938000" />
-      <workItem from="1586249278903" duration="44505000" />
+      <workItem from="1586249278903" duration="48634000" />
+      <workItem from="1586419344378" duration="2410000" />
+      <workItem from="1586505685035" duration="620000" />
+      <workItem from="1587390517620" duration="34000" />
+      <workItem from="1587479287092" duration="600000" />
+      <workItem from="1587502731395" duration="599000" />
+      <workItem from="1587541015729" duration="53000" />
+      <workItem from="1587675408148" duration="1198000" />
+      <workItem from="1587715474613" duration="233000" />
+      <workItem from="1587907848361" duration="6510000" />
+      <workItem from="1587915885231" duration="17759000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="711" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587908103607">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="711" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1587908103607" />
     <state x="640" y="248" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1585215602838">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -277,9 +263,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586258846883" />
-    <state x="656" y="252" width="617" height="536" key="find.popup" timestamp="1586299210433">
+    <state x="656" y="252" width="617" height="536" key="find.popup" timestamp="1587913375674">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="252" width="617" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586299210433" />
+    <state x="656" y="252" width="617" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1587913375674" />
+    <state x="683" y="291" key="refactoring.ChangeSignatureDialog" timestamp="1587908500703">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="683" y="291" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587908500703" />
   </component>
 </project>

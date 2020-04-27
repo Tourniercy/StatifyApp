@@ -20,7 +20,7 @@ class AuthController extends AbstractController
     private $spotifyParams;
     private $spotify;
 
-    public function __construct()
+    public function __construct( SessionInterface $session )
     {
         $this->spotifyParams = [
             'client_id' => '435c7b3a2d4f4425917888fc7f637e67',
@@ -35,8 +35,6 @@ class AuthController extends AbstractController
             $this->spotifyParams['client_secret'],
             'http://127.0.0.1:8000/login/oauth'
         );
-
-
     }
 
     /**
@@ -44,7 +42,6 @@ class AuthController extends AbstractController
      */
     public function login( SessionInterface $session )
     {
-
         $options = [
             'scope' => $this->spotifyParams['scope'],
         ];
@@ -75,6 +72,7 @@ class AuthController extends AbstractController
         $this->spotify->requestAccessToken($accessCode);
         $accessToken = $this->spotify->getAccessToken();
         $session->set('accessToken', $accessToken); // symfony session
+        $session->set('SpotifyWebAPI\Session', $this->spotify);
 
         return $this->redirectToRoute('dashboard');
     }
