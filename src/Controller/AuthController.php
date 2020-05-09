@@ -30,7 +30,6 @@ class AuthController extends AbstractController
                 'playlist-modify-private','user-follow-read','user-follow-modify','user-library-read','user-top-read','user-read-playback-state','streaming' ]
         ];
         $url = $_SERVER['APP_ENV'] === 'prod' ? 'https://statifyapp.herokuapp.com/login/oauth' :  'http://127.0.0.1:8000/login/oauth';
-        dd($url);
         $this->spotify = new SpotifyWebAPI\Session(
             $this->spotifyParams['client_id'],
             $this->spotifyParams['client_secret'],
