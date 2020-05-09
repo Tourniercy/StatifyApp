@@ -33,7 +33,9 @@ class AuthController extends AbstractController
         $this->spotify = new SpotifyWebAPI\Session(
             $this->spotifyParams['client_id'],
             $this->spotifyParams['client_secret'],
-            'http://127.0.0.1:8000/login/oauth'
+            ($_SERVER['APP_ENV'] === 'prod' ? 'https://statifyapp.herokuapp.com/login/oauth' :  'http://127.0.0.1:8000/login/oauth')
+
+
         );
     }
 
